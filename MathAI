@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math AI</title>
+    <script>
+        class MathAI {
+            constructor() {
+                this.history = [];
+            }
+
+            answerQuestion(question) {
+                try {
+                    const answer = eval(question);
+                    this.history.push({ question, answer, correct: true });
+                    return answer;
+                } catch (error) {
+                    this.history.push({ question, answer: null, correct: false });
+                    return "Error: Invalid question.";
+                }
+            }
+
+            learnFromMistakes() {
+                this.history.forEach(entry => {
+                    if (!entry.correct) {
+                        console.log(`Reviewing question: ${entry.question}`);
+                        // Logic to improve learning can be added here
+                    }
+                });
+            }
+        }
+
+        const mathAI = new MathAI();
+
+        function askQuestion() {
+            const question = document.getElementById('questionInput').value;
+            const result = mathAI.answerQuestion(question);
+            document.getElementById('result').innerText = result;
+            mathAI.learnFromMistakes();
+        }
+    </script>
+</head>
+<body>
+    <h1>Math AI Assistant</h1>
+    <input type="text" id="questionInput" placeholder="Enter your math question">
+    <button onclick="askQuestion()">Ask</button>
+    <p id="result"></p>
+</body>
+</html>
