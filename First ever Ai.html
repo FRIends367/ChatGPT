@@ -31,3 +31,29 @@
     <p id="answer"></p>
 </body>
 </html>
+# AI Response to Simple Math
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Math AI</title>
+</head>
+<body>
+    <h1>AI Math Response</h1>
+    <script>
+        function answerQuestion(question) {
+            if (question === "What is 2 + 2?") {
+                return "The answer is 4.";
+            } else {
+                return "I can only answer simple math questions.";
+            }
+        }
+
+        const userQuestion = "What is 2 + 2?";
+        const response = answerQuestion(userQuestion);
+        document.write(response);
+    </script>
+</body>
+</html>
