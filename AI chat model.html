@@ -1,0 +1,76 @@
+# AI Chat Model
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        #chat-container {
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        #messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #user-input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #send-button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <h2>Chat with AI</h2>
+    <div id="messages"></div>
+    <input type="text" id="user-input" placeholder="Type your question here...">
+    <button id="send-button">Send</button>
+</div>
+
+<script>
+    const messagesDiv = document.getElementById('messages');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', () => {
+        const userMessage = userInput.value;
+        if (userMessage) {
+            messagesDiv.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+            userInput.value = '';
+            // Simulate AI response
+            setTimeout(() => {
+                messagesDiv.innerHTML += `<div><strong>AI:</strong> This is a simulated response to your question.</div>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }, 1000);
+        }
+    });
+</script>
+
+</body>
+</html>
