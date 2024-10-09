@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Question Answering System</title>
+</head>
+<body>
+    <h1>Welcome to the AI Question Answering System</h1>
+    <p>Please enter your question below:</p>
+    <form id="questionForm">
+        <label for="question">Your Question:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="answerSection">
+        <h2>Answer:</h2>
+        <p id="answer"></p>
+    </div>
+    <script>
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            // Here you would typically call your AI service to get the answer
+            document.getElementById('answer').innerText = "This is where the AI's answer will appear.";
+        });
+    </script>
+</body>
+</html>
