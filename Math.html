@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math AI</title>
+    <script>
+        function calculate() {
+            const input = document.getElementById("mathInput").value;
+            let result;
+            try {
+                result = eval(input);
+            } catch (e) {
+                result = "Error: Invalid Input";
+            }
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Math AI</h1>
+    <p>Ask me any math problem:</p>
+    <input type="text" id="mathInput" placeholder="e.g., 1/2 + 3/4 or 5.5 * 2">
+    <button onclick="calculate()">Calculate</button>
+    <p>Result: <span id="result"></span></p>
+</body>
+</html>
