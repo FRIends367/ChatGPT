@@ -1,0 +1,65 @@
+# AI Math Model for Fractions
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Math Model</title>
+</head>
+<body>
+    <h1>AI Math Model for Fractions</h1>
+    <form id="mathForm">
+        <label for="fraction1">Fraction 1 (e.g., 1/2):</label>
+        <input type="text" id="fraction1" required>
+        <label for="operation">Operation:</label>
+        <select id="operation" required>
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <label for="fraction2">Fraction 2 (e.g., 1/3):</label>
+        <input type="text" id="fraction2" required>
+        <button type="submit">Calculate</button>
+    </form>
+    <h2>Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('mathForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fraction1 = document.getElementById('fraction1').value.split('/');
+            const fraction2 = document.getElementById('fraction2').value.split('/');
+            const operation = document.getElementById('operation').value;
+
+            const num1 = parseInt(fraction1[0]);
+            const den1 = parseInt(fraction1[1]);
+            const num2 = parseInt(fraction2[0]);
+            const den2 = parseInt(fraction2[1]);
+            let resultNum, resultDen;
+
+            switch (operation) {
+                case 'add':
+                    resultNum = (num1 * den2) + (num2 * den1);
+                    resultDen = den1 * den2;
+                    break;
+                case 'subtract':
+                    resultNum = (num1 * den2) - (num2 * den1);
+                    resultDen = den1 * den2;
+                    break;
+                case 'multiply':
+                    resultNum = num1 * num2;
+                    resultDen = den1 * den2;
+                    break;
+                case 'divide':
+                    resultNum = num1 * den2;
+                    resultDen = den1 * num2;
+                    break;
+            }
+
+            document.getElementById('result').innerText = `${resultNum}/${resultDen}`;
+        });
+    </script>
+</body>
+</html>
