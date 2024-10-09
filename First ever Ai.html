@@ -1,29 +1,33 @@
+# AI Question Answering System
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Question Answering System</title>
+    <title>AI Question Answering</title>
+    <script>
+        function answerQuestion() {
+            const question = document.getElementById("question").value;
+            let answer = "";
+
+            // Simple AI logic for answering questions
+            if (question.includes("hello")) {
+                answer = "Hello! How can I assist you today?";
+            } else if (question.includes("your name")) {
+                answer = "I am an AI designed to help you with your queries.";
+            } else {
+                answer = "I'm sorry, I don't have an answer for that.";
+            }
+
+            document.getElementById("answer").innerText = answer;
+        }
+    </script>
 </head>
 <body>
-    <h1>Welcome to the AI Question Answering System</h1>
-    <p>Please enter your question below:</p>
-    <form id="questionForm">
-        <label for="question">Your Question:</label>
-        <input type="text" id="question" name="question" required>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="answerSection">
-        <h2>Answer:</h2>
-        <p id="answer"></p>
-    </div>
-    <script>
-        document.getElementById('questionForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const question = document.getElementById('question').value;
-            // Here you would typically call your AI service to get the answer
-            document.getElementById('answer').innerText = "This is where the AI's answer will appear.";
-        });
-    </script>
+    <h1>Ask Your Question</h1>
+    <input type="text" id="question" placeholder="Type your question here">
+    <button onclick="answerQuestion()">Get Answer</button>
+    <p id="answer"></p>
 </body>
 </html>
