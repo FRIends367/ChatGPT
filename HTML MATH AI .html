@@ -1,0 +1,85 @@
+# Math AI
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math AI</title>
+    <script>
+        class MathAI {
+            constructor() {
+                this.history = [];
+            }
+
+            add(a, b) {
+                return a + b;
+            }
+
+            subtract(a, b) {
+                return a - b;
+            }
+
+            multiply(a, b) {
+                return a * b;
+            }
+
+            divide(a, b) {
+                if (b === 0) {
+                    return "Error: Division by zero";
+                }
+                return a / b;
+            }
+
+            learnFromMistake(problem, userAnswer, correctAnswer) {
+                this.history.push({ problem, userAnswer, correctAnswer });
+            }
+
+            getHistory() {
+                return this.history;
+            }
+        }
+
+        const mathAI = new MathAI();
+
+        function performOperation() {
+            const a = parseFloat(document.getElementById('num1').value);
+            const b = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            let result;
+
+            switch (operation) {
+                case 'add':
+                    result = mathAI.add(a, b);
+                    break;
+                case 'subtract':
+                    result = mathAI.subtract(a, b);
+                    break;
+                case 'multiply':
+                    result = mathAI.multiply(a, b);
+                    break;
+                case 'divide':
+                    result = mathAI.divide(a, b);
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Math AI</h1>
+    <input type="number" id="num1" placeholder="First Number">
+    <input type="number" id="num2" placeholder="Second Number">
+    <select id="operation">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+    </select>
+    <button onclick="performOperation()">Calculate</button>
+    <p id="result"></p>
+</body>
+</html>
